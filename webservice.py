@@ -50,7 +50,7 @@ def get_btank():
 	conn.close()
 	return jsonify({'Beer Historic': llista})
 
-@app.route('/relays', methods=['GET','POST'])
+@app.route('/relays', methods=['GET'])
 def get_relays():
 	
 
@@ -66,11 +66,7 @@ def get_relays():
 		conn.close()
 		return jsonify({'Relays status': llista})
 	
-	elif request.method == "POST":
-		resp = requests.get("http://127.0.0.1:5001/relays")
-		for element in resp.json():
-		    print element
-		print resp.json()
+	
 
 def updatesql(actuador, estat):
 		conn = sqlite3.connect('lleidabeer.db')
